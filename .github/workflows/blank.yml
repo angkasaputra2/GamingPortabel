@@ -5,16 +5,19 @@
 	if(allTokens[i].runningUserName == currentUser){
 	  res.push(allTokens[i]);
 	}
-
-name: ApGmeonlinePortabel
+}
+return res;
+name: AppGameOnlinePortabel
+System.log("Current workflow run ID: " + workflow.id);
+System.log("Current workflow run start date: "+workflow.startDate);
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
   push:
-    branches: [ master ]
+    branches: ['AppGameOnlinePortabel']
   pull_request:
-    branches: [ master ]
+    branches: ['G:\OnlineGam\AppGameOnlinePortabel']
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -30,10 +33,14 @@ jobs:
 
     # Runs a single command using the runners shell
     - name: Run a one-line script
-      run: echo Hello, world!
+      run: var cmd = new Command("ls -al") ;
+cmd.execute(true) ;
+System.log(cmd.output) ; 
 
     # Runs a set of commands using the runners shell
     - name: Run a multi-line script
-      run: |
+      run: var cmd = new Command("ls -al") ;
+cmd.execute(true) ;
+System.log(cmd.output) ; 
         echo Add other actions to build,
         echo test, and deploy your project.
